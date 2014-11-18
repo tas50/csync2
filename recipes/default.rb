@@ -18,7 +18,7 @@
 #
 
 case node['platform']
-when "redhat", "centos", "fedora"
+when "redhat", "centos", "fedora", "amazon"
   install_packages = node[:csync2][:build_packages][:rhel]
 when "debian", "ubuntu"
   install_packages = node[:csync2][:build_packages][:ubuntu]
