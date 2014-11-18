@@ -47,7 +47,7 @@ execute "Install csync2" do
   not_if { ::File.exists?(csync2_command) }
 end
 
-ssl_conf = data_bag_item('csync2', 'default')
+ssl_conf = Chef::EncryptedDataBagItem.load('csync2', node.chef_environment)
 [ "csync2.key", "csync2_ssl_cert.csr", "csync2_ssl_cert.pem", "csync2_ssl_key.pem"].each do |name|
   file "/etc/#{name}" do
     content ssl_conf["#{name}"]
