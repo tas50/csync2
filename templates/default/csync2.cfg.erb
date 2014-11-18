@@ -1,1 +1,22 @@
 # This file is managed by Chef
+
+group default {
+<% @hosts.each do |host| -%>
+  host <%= host %>;
+<% end -%>
+
+  key /etc/csync2.key;
+
+<% @directories.each do |dir| -%>
+  include <%= dir %>;
+<% end -%>
+
+  action {
+    logfile "/var/log/csync2/csync2.log";
+    do-local;
+  }
+
+  backup-directory /var/spool/csync2;
+  backup-generations 2;
+  auto younger;
+}

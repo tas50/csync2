@@ -28,3 +28,6 @@ default[:csync2][:build_packages][:ubuntu] = [
 ]
 
 default[:csync2][:src][:configure_opts] = './configure  --prefix=/usr --localstatedir=/var --with-librsync-source=../librsync-0.9.7.tar.gz --with-libsqlite-source=../sqlite-2.8.17.tar.gz --sysconfdir=/etc --disable-gnutls'
+
+default[:csync2][:hosts] = [ "127.0.0.1" ]
+default[:csync2][:directories] = [ "/tmp/csync2" ]
