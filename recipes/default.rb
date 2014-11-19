@@ -51,7 +51,7 @@ ssl_conf = Chef::EncryptedDataBagItem.load('csync2', node.chef_environment)
 [ "csync2.key", "csync2_ssl_cert.csr", "csync2_ssl_cert.pem", "csync2_ssl_key.pem" ].each do |name|
   file "/etc/#{name}" do
     content ssl_conf["#{name}"]
-    mode 400
+    mode 00644
   end
 end
 
