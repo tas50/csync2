@@ -1,0 +1,10 @@
+service csync2
+{
+disable = no
+protocol = tcp
+socket_type = stream
+wait = no
+user = root
+server = /usr/sbin/csync2
+server_args = -i
+}

@@ -66,3 +66,18 @@ template "/etc/csync2.cfg" do
     :directories => node[:csync2][:directories]
   })
 end
+
+execute "Configure service port" do
+  command "echo 'csync2     30865/tcp' >> /etc/services"
+  notifies :restart, "service[xinetd]", :delayed
+  not_if "grep csync2 /etc/services"
+end
+
+template "/etc/xinetd.d/csync2" do
+  source "csync2.xinetd.erb"
+  notifies :restart, "service[xinetd]", :delayed
+end
+
+service "xinetd" do
+  action :nothing
+end
