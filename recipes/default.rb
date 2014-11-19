@@ -65,6 +65,7 @@ template "/etc/csync2.cfg" do
     :hosts => node[:csync2][:hosts],
     :directories => node[:csync2][:directories]
   })
+  notifies :restart, "service[xinetd]", :delayed
 end
 
 execute "Configure service port" do
