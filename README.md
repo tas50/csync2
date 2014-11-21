@@ -16,7 +16,7 @@ and store them in an encrypted data bag named csync2.
 * Install csync2
 * Generate entropy to quickly generate keys
 ```
-command "rngd -r /dev/urandom -o /dev/random -b"
+rngd -r /dev/urandom -o /dev/random -b
 ```
 * Generate csync2 key
 ```
