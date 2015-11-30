@@ -1,5 +1,5 @@
-csync2
-======
+# csync2 Cookbook
+[![Cookbook Version](https://img.shields.io/cookbook/v/csync2.svg)](https://supermarket.chef.io/cookbooks/csync2)
 
 Installs and configures [csync2](http://oss.linbit.com/csync2/)
 
